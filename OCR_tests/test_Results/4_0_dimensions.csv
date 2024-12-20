@@ -1,0 +1,38 @@
+ID,type,flag,nominal,value,tolerance,upper_bound,lower_bound
+1,Length,True,±025,,±025,+025,-025
+2,Length,False,74./,74./,general,,
+3,Length,True,-02,-02,general,,
+4,Length,False,32,32,general,,
+5,Length,True,±02,,±02,+02,-02
+6,Length,False,54,54,general,,
+7,Length,True,25,25,general,,
+8,Length,True,±02,,±02,+02,-02
+9,Length,True,+1.(2,+1.(2,general,,
+10,Length,True,-. a59,-. a59,general,,
+11,Length,False,33.3,33.3,general,,
+12,Length,True,26±006,26,±006,+006,-006
+13,Length,True,-02,-02,general,,
+14,Length,False,38.6,38.6,general,,
+15,Length,True,96±005,96,±005,+005,-005
+16,Length,False,1/2-200M,1/2-200M,general,,
+17,Length,False,35,35,general,,
+18,Length,False,38,38,general,,
+19,Length,False,5,5,general,,
+20,Length,True,±0.1,,±0.1,+0.1,-0.1
+21,Length,False,8.8,8.8,general,,
+22,Length,False,32,32,general,,
+23,Length,True,±02,,±02,+02,-02
+24,Length,True,2 +05 0,2,,+05,0
+25,Length,False,R12,R12,general,,
+26,Length,False,42,42,general,,
+27,Length,True,±02,,±02,+02,-02
+28,Length,True,+0.5 0,+0.5 0,general,,
+29,Length,True,R216,R216,general,,
+30,Length,True,8C0M,8C0M,general,,
+31,Length,True,48,48,general,,
+32,Length,True,12x45°,12x45°,general,,
+33,Length,True,14,14,general,,
+34,Length,True,436,436,general,,
+35,Length,False,3/8,3/8,general,,
+36,Length,True,488±02,488,±02,+02,-02
+37,Length,True,8CC0MB-B,8CC0MB-B,general,,

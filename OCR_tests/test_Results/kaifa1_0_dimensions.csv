@@ -1,0 +1,62 @@
+ID,type,flag,nominal,value,tolerance,upper_bound,lower_bound
+1,Length,False,15,15,general,,
+2,Thread,False,M6x1.0,M6x1.0,,,
+3,Length,True,7.5,7.5,general,,
+4,Length,True,R200,R200,general,,
+5,Length,True,R0.3,R0.3,general,,
+6,Length,True,Rm5x.6,Rm5x.6,general,,
+7,Length,True,5..(.(2.5,5..(.(2.5,general,,
+8,Length,True,R25,R25,general,,
+9,Length,False,20.5,20.5,general,,
+10,Length,True,14.5,14.5,general,,
+11,Length,False,⌀24.5,⌀24.5,general,,
+12,Length,False,C0.5,C0.5,general,,
+13,Length,True,2-C1,2-C1,general,,
+14,Thread,False,G⌀4a,G⌀4a,,,
+15,Length,True,R25,R25,general,,
+16,Length,True,6,6,general,,
+17,Length,False,40,40,general,,
+18,Length,False,R25,R25,general,,
+19,Length,False,21.5,21.5,general,,
+20,Length,True,8Cm0M,8Cm0M,general,,
+21,Length,False,±-2,,,+-2,--2
+22,Length,True,R20,R20,general,,
+23,Length,True,39±0.5,39,,+0.5,-0.5
+24,Length,False,C1,C1,general,,
+25,Length,True,.01+,.01+,general,,
+26,Length,True,". -1 2C""C+⌀",.,,-1,"2C""C+⌀"
+27,Length,True,.. - 9⌀,..,,-,9⌀
+28,Length,True,252.1±0.3,252.1,,+0.3,-0.3
+29,Length,False,24.8,24.8,general,,
+30,Length,True,.0. a C+.,.0.,,a,C+.
+31,Length,True,. 60 --,.,,60,--
+32,Length,True,10 +0.3 0,10,,+0.3,0
+33,Length,True,.0.(,.0.(,general,,
+34,Length,True,55±0.15,55,,+0.15,-0.15
+35,Length,True,.±.2.,.,,+.2.,-.2.
+36,Length,True,".""80",".""80",general,,
+37,Length,True,R5,R5,general,,
+38,Length,True,15.5,15.5,general,,
+39,Length,True,(19),,general,,
+40,Length,True,31±0.2,31,,+0.2,-0.2
+41,Length,False,R125,R125,general,,
+42,Length,False,9⌀0,9⌀0,general,,
+43,Length,False,5,5,general,,
+44,Length,True,14.5±0.1,14.5,,+0.1,-0.1
+45,Length,False,30,30,general,,
+46,Length,True,Rm-a(9,Rm-a(9,general,,
+47,Length,False,⌀24,⌀24,general,,
+48,Length,False,9⌀4a,9⌀4a,general,,
+49,Length,True,004a,004a,general,,
+50,Length,True,"C""⌀(M902","C""⌀(M902",general,,
+51,Length,True,31±0.2,31,,+0.2,-0.2
+52,Length,False,21.5,21.5,general,,
+53,Length,True,RG0/RG0,RG0/RG0,general,,
+54,Length,True,249 0 -0.3,249,,0,-0.3
+55,Length,True,21/.1±0.3,21/.1,,+0.3,-0.3
+56,Length,False,(60.9),,general,,
+57,Length,True,9C0MD-D,9C0MD-D,general,,
+58,Length,True,±2. +0. 0,±2.,,+0.,0
+59,Length,True,2 +0.2 0,2,,+0.2,0
+60,Length,True,2±,2,,+,-
+61,Length,False,28 +0.2 0,28,,+0.2,0

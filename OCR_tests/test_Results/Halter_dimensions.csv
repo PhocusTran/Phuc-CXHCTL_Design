@@ -1,0 +1,15 @@
+ID,type,flag,nominal,value,tolerance,upper_bound,lower_bound
+1,Angle,True,45°,45,,,
+2,Length,False,550,550,general,,
+3,Length,False,A3,A3,general,,
+4,Length,False,4,4,general,,
+5,Length,True,9,9,general,,
+6,Length,False,3,3,general,,
+7,Angle,True,45°,45,,,
+8,Length,True,2x⌀8.80H8,2x⌀8.80,H8,,
+9,Thread,True,M5GH:,M5GH:,,,
+10,Length,False,0.00 35.00-0.20,0.00 35.00-0.20,general,,
+11,Length,False,2.5,2.5,general,,
+12,Length,False,R2,R2,general,,
+13,Length,True,.± +6. 0,.±,,+6.,0
+14,Length,True,5H55nC+.,5,H55nC+.,,

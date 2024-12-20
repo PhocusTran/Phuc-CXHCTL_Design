@@ -1,0 +1,9 @@
+ID,flag,nominal,condition,tolerance
+1,False,⌖|⌀0.20|A,⌖,⌀0.20
+2,False,⌖|⌀0.20|A,⌖,⌀0.20
+3,False,⌖|⌀63CG|A0,⌖,⌀63CG
+4,False,∠|0.4|C,∠,0.4
+5,False,⏥|02,⏥,02
+6,False,⫽|02|.B,⫽,02
+7,False,⫽|02|.B,⫽,02
+8,False,∠|0.3|D,∠,0.3

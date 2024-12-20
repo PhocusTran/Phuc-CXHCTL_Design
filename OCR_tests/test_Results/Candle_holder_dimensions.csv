@@ -1,0 +1,13 @@
+ID,type,flag,nominal,value,tolerance,upper_bound,lower_bound
+1,Length,False,⌀42,⌀42,general,,
+2,Length,False,38,38,general,,
+3,Length,False,9,9,general,,
+4,Length,False,⌀38,⌀38,general,,
+5,Length,False,(25.5),,general,,
+6,Length,False,1x45°,1x45°,general,,
+7,Length,False,1x45°,1x45°,general,,
+8,Length,False,16,16,general,,
+9,Length,False,45.0°,45.0°,general,,
+10,Length,True,⌀21.5±0.1,⌀21.5,,+0.1,-0.1
+11,Length,False,60.0°,60.0°,general,,
+12,Length,False,⌀38H12,⌀38,H12,,
