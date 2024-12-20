@@ -12,6 +12,7 @@ build/
 develop-eggs/
 dist/
 downloads/
+OCR_Test
 eggs/
 .eggs/
 lib/
