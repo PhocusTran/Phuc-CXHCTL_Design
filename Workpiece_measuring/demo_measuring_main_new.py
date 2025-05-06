@@ -21,54 +21,38 @@ image_width = 5472  # pixels (default resolution width)
 image_height = 3648  # pixels (default resolution height, assuming 3:2 aspect ratio)
 distance = 120  # mm (initial value)
 threshold_value = 200  # Threshold
-calibration_distances = [110, 120, 130]  # Các khoảng cách hiệu chuẩn
-ppm_values = [] # Danh sách để lưu trữ giá trị ppm tương ứng với khoảng cách
 
-# Calibration parameters
-mtx = None
-dist = None
+# Calculate initial ppm
+object_width_mm = (sensor_width * distance) / focal_length
+ppm = image_width / object_width_mm
+
+# Camera initialization
+camera = pylon.InstantCamera(pylon.TlFactory.GetInstance().CreateFirstDevice())
+camera.StartGrabbing(pylon.GrabStrategy_LatestImageOnly)
+camera.GainAuto.Value = "Off"
+camera.ExposureAuto.Value = "Off"
+camera.GammaSelector.Value = "User"
+camera.Gamma.Value = 1.0
+camera.ExposureTimeAbs.SetValue(220000)
+camera.GainRaw.SetValue(0)
+
+converter = pylon.ImageFormatConverter()
+converter.OutputPixelFormat = pylon.PixelType_BGR8packed
+
 try:
     with np.load('calibration_params_5472.npz') as data:
         mtx = data['mtx']
         dist = data['dist']
         print("Calibration parameters loaded successfully.")
+
+        fx = mtx[0, 0]
+        fy = mtx[1, 1]
+        print(f"fx = {fx}")
+        print(f"fy = {fy}")
 except FileNotFoundError:
     print("Calibration file not found. Using default parameters.")
     mtx = None
     dist = np.zeros((4, 1))
-
-# Function to calculate ppm (Pixel Per Millimeter)
-def calculate_ppm(wd, focal_length, sensor_width, image_width):
-    """
-    Calculates the pixels per millimeter (ppm) based on the working distance (wd),
-    focal length, sensor width, and image width.
-
-    Args:
-        wd (float): The working distance in millimeters.
-        focal_length (float): The focal length of the lens in millimeters.
-        sensor_width (float): The width of the camera sensor in millimeters.
-        image_width (int): The width of the image in pixels.
-
-    Returns:
-        float: The pixels per millimeter (ppm).
-    """
-    object_width_mm = (sensor_width * wd) / focal_length
-    return image_width / object_width_mm
-
-# Function to calculate object size
-def calculate_real_size(pixel_size, ppm):
-    """
-    Calculates the real size of an object in millimeters based on its size in pixels
-    and the pixels per millimeter (ppm).
-
-    Args:
-        pixel_size (float): The size of the object in pixels.
-        ppm (float): The pixels per millimeter (ppm).
-
-    Returns:
-        float: The real size of the object in millimeters.
-    """
-    return pixel_size / ppm
 
 def update_threshold(new_value):
     global threshold_value
@@ -77,8 +61,11 @@ def update_threshold(new_value):
     entry_threshold.insert(0, threshold_value)
 
 def update_distance(new_distance):
-    global distance
+    global distance, ppm
     distance = float(new_distance)
+    object_width_mm = (sensor_width * distance) / focal_length
+    ppm = image_width / object_width_mm
+    print(f"Updated distance: {distance} mm, ppm: {ppm}")
     entry_distance.delete(0, tk.END)
     entry_distance.insert(0, distance)
 
@@ -93,6 +80,11 @@ def draw_parallel_lines(image, x1, y1, x2, y2, fractions=[0.1, 0.4, 0.7], color=
 
     # Tạo đa giác từ contour
     contour_polygon = Polygon(contour.reshape(-1, 2))
+
+    # Debug tọa độ contour
+    # print(f"Contour polygon coords: {list(contour_polygon.exterior.coords)}")
+    # y_coords = [coord[1] for coord in contour_polygon.exterior.coords]
+    # print(f"Y range of contour: {min(y_coords)} to {max(y_coords)}")
 
     for fraction in fractions:
         px = int(x1 + fraction * dx)
@@ -123,9 +115,7 @@ def draw_parallel_lines(image, x1, y1, x2, y2, fractions=[0.1, 0.4, 0.7], color=
                         pt1 = (int(coords1[0][0]), int(coords1[0][1]))
                         pt2 = (int(coords2[0][0]), int(coords2[0][1]))
                         line_length_px = distan.euclidean(pt1, pt2)
-                        # Tính toán ppm dựa trên khoảng cách hiện tại
-                        current_ppm = calculate_ppm(distance, focal_length, sensor_width, image_width)
-                        line_length_mm = calculate_real_size(line_length_px, current_ppm)
+                        line_length_mm = line_length_px / ppm
                         parallel_lines_lengths_mm.append(line_length_mm)
                         cv2.line(image, pt1, pt2, color, thickness)
                         mid_x = int((pt1[0] + pt2[0]) / 2)
@@ -135,12 +125,10 @@ def draw_parallel_lines(image, x1, y1, x2, y2, fractions=[0.1, 0.4, 0.7], color=
                 coords = list(intersection.coords)
                 if len(coords) >= 2:
                     # Lấy hai điểm đầu và cuối
-                    pt1 = (int(coords[0][0]), int(coords[-1][0]))
-                    pt2 = (int(coords[0][1]), int(coords[-1][1]))
+                    pt1 = (int(coords[0][0]), int(coords[0][1]))
+                    pt2 = (int(coords[-1][0]), int(coords[-1][1]))
                     line_length_px = distan.euclidean(pt1, pt2)
-                    # Tính toán ppm dựa trên khoảng cách hiện tại
-                    current_ppm = calculate_ppm(distance, focal_length, sensor_width, image_width)
-                    line_length_mm = calculate_real_size(line_length_px, current_ppm)
+                    line_length_mm = line_length_px / ppm
                     parallel_lines_lengths_mm.append(line_length_mm)
                     cv2.line(image, pt1, pt2, color, thickness)
                     mid_x = int((pt1[0] + pt2[0]) / 2)
@@ -193,19 +181,6 @@ update_distance_button.pack()
 canvas = tk.Canvas(root, width=1080, height=718)  # Display resolution
 canvas.pack()
 
-# Camera initialization
-camera = pylon.InstantCamera(pylon.TlFactory.GetInstance().CreateFirstDevice())
-camera.StartGrabbing(pylon.GrabStrategy_LatestImageOnly)
-camera.GainAuto.Value = "Off"
-camera.ExposureAuto.Value = "Off"
-camera.GammaSelector.Value = "User"
-camera.Gamma.Value = 1.0
-camera.ExposureTimeAbs.SetValue(100000)
-camera.GainRaw.SetValue(0)
-
-converter = pylon.ImageFormatConverter()
-converter.OutputPixelFormat = pylon.PixelType_BGR8packed
-
 while True:
     frame = camera.RetrieveResult(5000, pylon.TimeoutHandling_ThrowException)
     if frame.GrabSucceeded():
@@ -217,14 +192,13 @@ while True:
             img = cv2.undistort(img, mtx, dist, None, newcameramtx)
             x, y, w, h = roi
             img = img[y:y + h, x:x + w]
-            image_width = w # Cập nhật lại image_width sau khi undistort và crop
 
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         blur = cv2.GaussianBlur(gray, (9, 9), 0)
         thresh = cv2.threshold(blur, threshold_value, 255, cv2.THRESH_BINARY)[1]
         kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
         opening = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
-        edged = cv2.Canny(opening, 50, int(threshold_value)) # Thử nghiệm với các ngưỡng khác nhau
+        edged = cv2.Canny(opening, 50, int(threshold_value))
 
         cnts = cv2.findContours(edged.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         cnts = imutils.grab_contours(cnts)
@@ -241,7 +215,6 @@ while True:
             if cv2.contourArea(c) < 10:  # Lọc contour nhỏ
                 continue
 
-            # Tính toán hình chữ nhật bao quanh nhỏ nhất
             hinh_hop = cv2.minAreaRect(c)
             hinh_hop = cv2.cv.boxPoints(hinh_hop) if imutils.is_cv2() else cv2.boxPoints(hinh_hop)
             hinh_hop = np.array(hinh_hop, dtype="int")
@@ -256,15 +229,33 @@ while True:
             chieu_doc_pixels = distan.euclidean((tltrX, tltrY), (blbrX, blbrY))
             chieu_ngang_pixels = distan.euclidean((tlblX, tlblY), (trbrX, trbrY))
 
-            # Tính toán ppm dựa trên khoảng cách hiện tại
-            current_ppm = calculate_ppm(distance, focal_length, sensor_width, image_width)
-            chieu_doc_mm = calculate_real_size(chieu_doc_pixels, current_ppm)
-            chieu_ngang_mm = calculate_real_size(chieu_ngang_pixels, current_ppm)
+            chieu_doc_mm = (chieu_doc_pixels * 25.4) / ppm
+            chieu_ngang_mm = (chieu_ngang_pixels * 25.4) / ppm
 
             if chieu_doc_pixels > chieu_ngang_pixels:
+                # cv2.line(anh_copy, (int(tltrX), int(tltrY)), (int(blbrX), int(blbrY)), (0, 215, 255), 2)
+                # cv2.line(anh_copy, (int(tlblX), int(tlblY)), (int(trbrX), int(trbrY)), (0, 0, 255), 2)
+                # mid_doc_x = int((tltrX + blbrX) / 2)
+                # mid_doc_y = int((tltrY + blbrY) / 2)
+                # cv2.putText(anh_copy, f"Doc: {chieu_doc_pixels:.2f}px ({chieu_doc_mm:.2f}mm)", (mid_doc_x + 30, mid_doc_y - 20),
+                #             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 215, 255), 2)
+                # mid_ngang_x = int((tlblX + trbrX) / 2)
+                # mid_ngang_y = int((tlblY + trbrY) / 2)
+                # cv2.putText(anh_copy, f"Ngang: {chieu_ngang_pixels:.2f}px ({chieu_ngang_mm:.2f}mm)", (mid_ngang_x, mid_ngang_y + 30),
+                #             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 10)
                 lengths = draw_parallel_lines(anh_copy, int(tltrX), int(tltrY), int(blbrX), int(blbrY),
                                               fractions=[0.2, 0.55, 0.85], color=(255, 100, 0), contour=c)
             else:
+                # cv2.line(anh_copy, (int(tltrX), int(tltrY)), (int(blbrX), int(blbrY)), (0, 0, 255), 2)
+                # cv2.line(anh_copy, (int(tlblX), int(tlblY)), (int(trbrX), int(trbrY)), (0, 215, 255), 2)
+                # mid_doc_x = int((tltrX + blbrX) / 2)
+                # mid_doc_y = int((tltrY + blbrY) / 2)
+                # cv2.putText(anh_copy, f"Doc: {chieu_doc_pixels:.2f}px ({chieu_doc_mm:.2f}mm)", (mid_doc_x + 30, mid_doc_y),
+                #             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+                # mid_ngang_x = int((tlblX + trbrX) / 2)
+                # mid_ngang_y = int((tlblY + trbrY) / 2)
+                # cv2.putText(anh_copy, f"Ngang: {chieu_ngang_pixels:.2f}px ({chieu_ngang_mm:.2f}mm)", (mid_ngang_x + 30, mid_ngang_y),
+                #             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 215, 255), 10)
                 lengths = draw_parallel_lines(anh_copy, int(tlblX), int(tlblY), int(trbrX), int(trbrY),
                                               fractions=[0.2, 0.5, 0.8], color=(255, 100, 0), contour=c)
 
