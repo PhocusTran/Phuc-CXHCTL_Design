@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block navbtn_right %}
+<button class="mx-1 font-semibold rounded bg-green-300 px-3 py-1 hover:bg-pink-300 transform transition-transform duration-300 hover:scale-125" onclick="getHighlightedRowData()" >Fine-tune</button>
+{% endblock %}
+
+{% block navbtn_left %}
+<button onclick="location.href = '/';" class="mx-1 font-semibold rounded bg-green-300 px-3 py-1 hover:bg-pink-300 transform transition-transform duration-300 hover:scale-125">PDF</button>
+<button onclick="location.href = '/keyboard';" class="mx-1 font-semibold rounded bg-green-300 px-3 py-1 hover:bg-pink-300 transform transition-transform duration-300 hover:scale-125">Manual</button>
+{% endblock %}
+
+{% block content %}
+<div id="container" class="flex-grow flex flex-col">
+  <div class="grid grid-cols-3 text-center flex-grow flex flex-col">
+
+    <div class="bg-gray-100 border-solid border-2 rounded-md border-green-500">
+      <img id="result1" class="object-cover" src="">
+    </div>
+
+    <div class="h-full w-full col-span-2 border-solid border-2 rounded-md border-green-500">
+      <div class="flex flex-col h-full ">
+
+
+        <div class="max-h- overflow-auto">
+          <table id="dynamicTable" class="w-full border-collapse border border-gray-300">
+            <thead class="text-black">
+              <tr>
+                <th scope="col" class="px-3 py-1">ID</th>
+                <th scope="col" class="px-3 py-1">Nominal</th>
+                <th scope="col" class="px-3 py-1">Value</th>
+                <th scope="col" class="px-3 py-1">Tolerance</th>
+                <th scope="col" class="px-3 py-1">Measuring</th>
+                <th scope="col" class="px-3 py-1">Offset</th>
+                <th scope="col" class="px-3 py-1">Select</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white"></tbody>
+          </table>
+        </div>
+
+        <div class="grid grid-cols-2 mt-auto">
+          <img class="w-full" src="/video_feed">
+          <img class="w-full" src="/video_from_file">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="src/script.js"> </script>
+  <script src="src/finetune.js"> </script>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mx-auto">
+  <h1 class="text-center text-2xl font-bold mb-6">Dynamic Button Grid</h1>
+  <div id="button-grid" class="grid grid-cols-6 gap-4 p-4 bg-white shadow-md rounded-md">
+    <!-- Buttons will be dynamically inserted here -->
+  </div>
+
+  <!-- Multi-line Text Box -->
+  <div class="bg-white shadow-md rounded-md p-4">
+    <textarea id="multiline-text" 
+      rows="10" 
+      class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
+      placeholder="Enter command here..."></textarea>
+    <button id="manual-send-btn" 
+      class="m-4 text-lg rounded bg-green-400 px-3 py-1 hover:bg-pink-300 transform transition-transform duration-100 hover:scale-110">
+      Send
+    </button>
+
+    <button id="manual-import-btn" 
+      class="m-4 text-lg rounded bg-green-400 px-3 py-1 hover:bg-pink-300 transform transition-transform duration-100 hover:scale-110">
+      Import
+    </button>
+  </div>
+</div>
+
+<script src="/src/manual.js"> </script>
+{% endblock %}

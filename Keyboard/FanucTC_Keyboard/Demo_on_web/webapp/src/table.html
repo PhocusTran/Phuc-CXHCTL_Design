@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-center text-2xl font-bold my-6">Dynamic Table from CSV</h1>
+<div class="overflow-x-auto p-5 mx-auto">
+    <table id="dynamicTable" class="w-full text-sm text-left rtl:text-right">
+      <thead class="text-xs text-gray-900 uppercase bg-gray-50">
+        <!-- Table headers will be dynamically added here -->
+      </thead>
+      <tbody>
+        <!-- Table rows will be dynamically added here -->
+      </tbody>
+    </table>
+</div>
+
+<script>
+  async function loadCSV() {
+    // Example CSV content (replace with the actual file path or fetch logic)
+    const csvUrl = "/src/csv/data.csv"; // Replace with your CSV file's URL or path
+    try {
+      const response = await fetch(csvUrl);
+      const csvText = await response.text();
+      populateTable(csvText);
+    } catch (error) {
+      console.error("Error loading CSV file:", error);
+    }
+  }
+
+  
+  function populateTable(csvText) {
+    const rows = csvText.split("\n").map(row => row.split(","));
+    console.log(`Number of rows: ${rows.length}`); // Logs the number of rows parsed
+
+    const table = document.getElementById("dynamicTable");
+    const thead = table.querySelector("thead");
+    const tbody = table.querySelector("tbody");
+
+    // Clear existing table content
+    thead.innerHTML = "";
+    tbody.innerHTML = "";
+
+    // Populate table header
+    const headerRow = rows[0];
+    const headerHTML = headerRow
+        .map(header => `<th scope="col" class="px-6 py-3">${header.trim()}</th>`)
+        .join("");
+    thead.innerHTML = `<tr>${headerHTML}<th scope="col" class="px-6 py-3">Action</th></tr>`; // Add extra column header for the checkbox
+
+    // Populate table body, skip empty rows
+    rows.slice(1).forEach(row => {
+        if (row.some(cell => cell.trim() !== "")) { // Check if the row has any non-empty cell
+            const rowHTML = row
+                .map(cell => `<td class="px-6 py-4">${cell.trim()}</td>`)
+                .join("");
+            const checkboxHTML = `
+                <td class="px-6 py-4">
+                    <div class="flex justify-center items-center">
+                        <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+                    </div>
+                </td>`;
+            tbody.innerHTML += `<tr class="bg-white border-b border-gray-700">${rowHTML}${checkboxHTML}</tr>`;
+        }
+    });
+}
+
+
+  // Load CSV and populate the table on page load
+  window.addEventListener("DOMContentLoaded", loadCSV);
+</script>
+{% endblock %}

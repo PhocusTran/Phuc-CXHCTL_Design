@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="-1" />
+    <title>PDF Viewer</title>
+    <script src="{{ url_for('static', filename='/pdfjs/pdf.min.js') }}"></script>
+    <script src="src/socket.io.min.js"></script>
+    <link rel="stylesheet", href="src/output.css">
+    <link rel="stylesheet", href="src/style.css">
+  </head>
+  <body>
+    <div class="flex flex-col min-h-screen max-h-screen">
+      <header>
+        <nav class="m-3 rounded-md border-gray-200 bg-white px-2 py-3 border-2">
+          <div class="flex flex-wrap items-center justify-between">
+            <div >
+              <button onclick="history.back()" class="mx-1 font-semibold rounded bg-green-300 px-3 py-1 hover:bg-pink-300 transform transition-transform duration-300 hover:scale-125"><</button>
+              <button onclick="history.forward()" class="mx-1 font-semibold rounded bg-green-300 px-3 py-1 hover:bg-pink-300 transform transition-transform duration-300 hover:scale-125">></button>
+              {% block navbtn_left %}{% endblock %}
+            </div>
+            <div>
+              {% block navbtn_right %}{% endblock %}
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main class="flex-grow flex flex-col bg-gray-100">
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </body>
+</html>

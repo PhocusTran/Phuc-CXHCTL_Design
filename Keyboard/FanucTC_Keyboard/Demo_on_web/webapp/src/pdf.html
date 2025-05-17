@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block navbtn_right %}
+<button id="load_btn"
+    class="mx-1 rounded bg-green-300 px-3 py-1 hover:bg-pink-300 transform transition-transform duration-300 hover:scale-125">Load</button>
+<button id="next_btn" onclick="location.href='./ft'"
+    class="mx-1 rounded bg-green-300 px-3 py-1 hover:bg-pink-300 transform transition-transform duration-300 hover:scale-125">Next</button>
+{% endblock %}
+{% block navbtn_left %}
+<button onclick="location.href = '/keyboard';"
+    class="mx-1 font-semibold rounded bg-green-300 px-3 py-1 hover:bg-pink-300 transform transition-transform duration-300 hover:scale-125">Manual</button>
+{% endblock %}
+{% block content %}
+<div class="mx-10 bg-gray-200 rounded-full h-3 mb-4 dark:bg-gray-700" style="display: none" id="process_bar">
+    <div class="bg-green-600 h-3 rounded-full dark:bg-green-300" id="process_line" style="width: 10%"></div>
+</div>
+<div id="container" class="mx-auto container">
+    <div class="grid grid-rows-1 grid-flow-col gap-4 w-full overflow-auto">
+        <div class="max-w-full object-contain mx-auto border-2 flex justify-center overflow-auto">
+            <canvas id="source-viewer" class="pdf-viewer"></canvas>
+            <input type="file" id="file-input" accept="application/pdf" style="display: none;">
+        </div>
+
+        <div class="max-w-full object-contain mx-auto border-2 flex justify-center overflow-visible">
+            <!--
+                <canvas id="highlight-viewer" class="pdf-viewer "></canvas>
+            -->
+            <img id="result1" class="" src="">
+        </div>
+    </div>
+    <script src="src/script.js"> </script>
+    <script src="src/pdf.js"> </script>
+</div>
+{% endblock %}
