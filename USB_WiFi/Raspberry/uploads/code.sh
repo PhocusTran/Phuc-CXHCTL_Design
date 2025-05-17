@@ -1,1 +1,0 @@
-sudo update-initramfs -u
