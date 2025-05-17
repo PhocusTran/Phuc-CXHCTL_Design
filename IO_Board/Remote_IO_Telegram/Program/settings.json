@@ -1,0 +1,56 @@
+{
+  "app_name": "Remote IO",
+  "http_port": 8000,
+  "wifi": {
+    "ssid": "PHUC",
+    "password": "04122002"
+  },
+  "mdns": {
+    "name": "MQTT Broker",
+    "service_type": "_mqtt._tcp",
+    "port": 8000,
+    "mqtt_port": 1883
+  },
+  "chatbot_enable": "telegram",
+  "telebot": {
+    "token": "7915045358:AAE2vXXUsLComkJi6aoNADuULiM3jf9ATpw",
+    "chat": "-1002574874133"
+  },
+  "chatbot": [
+    {
+      "ID": "RemoteIO",
+      "Input_enabled": [
+        {
+          "Pin": 1,
+          "Alias": "red"
+        },
+        {
+          "Pin": 2,
+          "Alias": "yellow"
+        },
+        {
+          "Pin": 3,
+          "Alias": "green"
+        }
+      ],
+      "Output_enabled": [
+        {
+          "Pin": 1,
+          "Alias": "out0"
+        },
+        {
+          "Pin": 2,
+          "Alias": "start"
+        },
+        {
+          "Pin": 3,
+          "Alias": "stop"
+        },
+        {
+          "Pin": 4,
+          "Alias": "out3"
+        }
+      ]
+    }
+  ]
+}

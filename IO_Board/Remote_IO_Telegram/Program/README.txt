@@ -1,0 +1,2 @@
+- Bước 1: Chạy Mosquitto MQTT bằng mosquitto -v -c .\mosquitto.conf
+- Bước 2: Chạy file go main.go
