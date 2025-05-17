@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f4f4;
+        }
+        .error-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        h1 {
+            color: #ff5555;
+        }
+        .back-button {
+            background-color: white;
+            color: #007bff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            background-color: #e0f7ff;
+        }
+        .back-arrow {
+            margin-right: 5px; /* Space between arrow and text */
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>Error</h1>
+        <p>{{ message }}</p>
+        <a href="{{ back_url }}" class="back-button">
+            <img src="{{ url_for('static', filename='images/back.png') }}" alt="Back" class="back-arrow">
+        </a>
+    </div>
+</body>
+</html>

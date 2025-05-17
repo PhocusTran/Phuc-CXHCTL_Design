@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #ffffff;
+    color: #333;
+    text-align: center;
+    position: relative; /* For absolute positioning of the reload button */
+}
+
+h1 {
+    color: #0056b3;
+}
+
+.rpi-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the boxes horizontally */
+}
+
+.rpi-link {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color from body */
+    display: inline-block; /* To allow margin and padding */
+}
+
+.rpi-box {
+    width: 300px;
+    height: 200px;
+    border: 2px solid #aaa;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center; /* Center content within the box */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: space-around; /* Distribute space evenly */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.rpi-box:hover {
+    transform: translateY(-5px); /* Lift the box slightly on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.rpi-name {
+    color: #0056b3; /* Use the main color for the title */
+    font-size: 1.5em; /* Adjust font size as needed */
+}
+
+.rpi-storage {
+    font-size: 0.9em; /* Adjust font size for storage info */
+    color: #555; /* Slightly darker color for readability */
+}
+
+.status-light {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 5px;
+    border: 1px solid #777; /* Subtle border around the light */
+}
+
+.status-light.online {
+    background-color: green;
+    box-shadow: 0 0 5px green; /* Add a glow effect */
+}
+
+.status-light.offline {
+    background-color: red;
+    box-shadow: 0 0 5px red; /* Add a glow effect */
+}
+
+.progress-container {
+    width: 80%; /* Adjust width for better visual balance */
+    background-color: #eee;
+    border-radius: 5px;
+    height: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); /* Add an inner shadow */
+}
+
+.progress-bar {
+    background-color: #4CAF50;
+    height: 100%;
+    width: 0; /* Dynamic width */
+    border-radius: 5px;
+    transition: width 0.4s ease; /* Smooth transition for width */
+}
+
+.reload-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    width: 30px; /* Điều chỉnh kích thước nếu cần */
+    height: 30px;
+}
