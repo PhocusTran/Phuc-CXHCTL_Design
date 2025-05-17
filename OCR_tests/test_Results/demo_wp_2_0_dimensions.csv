@@ -1,9 +1,0 @@
-ID,type,flag,nominal,value,tolerance,upper_bound,lower_bound
-1,Length,True,5.0±0.2,5.0,±0.2,+0.2,-0.2
-2,Length,True,15.0±0.1,15.0,±0.1,+0.1,-0.1
-3,Length,True,15.0±0.1,15.0,±0.1,+0.1,-0.1
-4,Length,True,15.0±0.1,15.0,±0.1,+0.1,-0.1
-5,Length,True,13.0±0.1,13.0,±0.1,+0.1,-0.1
-6,Length,True,18.0±0.1,18.0,±0.1,+0.1,-0.1
-7,Length,True,15.0±0.1,15.0,±0.1,+0.1,-0.1
-8,Length,True,17.0±0.2,17.0,±0.2,+0.2,-0.2
