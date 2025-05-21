@@ -1,0 +1,3 @@
+[submodule "esp_sdmmc_file_server"]
+	path = CXHCTL_Design
+	url = https://github.com/HieuTran2002/esp_sdmmc_file_server.git
