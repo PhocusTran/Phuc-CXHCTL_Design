@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remote control</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/src/websocket.js"></script>
+    <script src="/src/script.js"></script>
+  </head>
+  <body class="h-screen">
+    <!-- Main container with sidebar and content inside -->
+    <main class="flex h-screen">
+      <!-- Sidebar (25%) -->
+      <aside class="flex w-fit flex-col bg-gray-800 p-4 text-white">
+        <h1 class="mb-6 text-5xl font-bold">Remote control</h1>
+        <ul class="space-y-4 text-2xl">
+          <li><a href="/" class="hover:text-cyan-500">Device Setup</a></li>
+          <li><a href="/dashboard" class="hover:text-cyan-500">Dashboard</a></li>
+          <li><a href="/chatsetting" class="hover:text-cyan-500">Settings</a></li>
+          <li><a href="/telegram" class="hover:text-cyan-500">Telegram Bot</a></li>
+        </ul>
+      </aside>
+
+      <!-- Content block (75%) -->
+      <div class="w-full bg-gray-200 p-6">
+        <div id="content" class="order-gray-400 h-full w-full items-center rounded-lg">
+            {{block "content" .}} {{end}}
+        </div>
+      </div>
+    </main>
+
+  </body>
+</html>
+
