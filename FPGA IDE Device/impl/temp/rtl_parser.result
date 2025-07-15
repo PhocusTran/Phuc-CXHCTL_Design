@@ -1,0 +1,70 @@
+[
+ {
+  "InstFile" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/debug_uart.v",
+  "InstLine" : 2,
+  "InstName" : "debug_uart",
+  "ModuleFile" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/debug_uart.v",
+  "ModuleLine" : 2,
+  "ModuleName" : "debug_uart"
+ },
+ {
+  "InstFile" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/sector_buffer.v",
+  "InstLine" : 3,
+  "InstName" : "sector_buffer",
+  "ModuleFile" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/sector_buffer.v",
+  "ModuleLine" : 3,
+  "ModuleName" : "sector_buffer"
+ },
+ {
+  "InstFile" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/top.v",
+  "InstLine" : 9,
+  "InstName" : "top",
+  "ModuleFile" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/top.v",
+  "ModuleLine" : 9,
+  "ModuleName" : "top",
+  "SubInsts" : [
+   {
+    "InstFile" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/top.v",
+    "InstLine" : 58,
+    "InstName" : "ide_inst",
+    "ModuleFile" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/ide_device.v",
+    "ModuleLine" : 7,
+    "ModuleName" : "ide_device"
+   },
+   {
+    "InstFile" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/top.v",
+    "InstLine" : 80,
+    "InstName" : "sd_inst",
+    "ModuleFile" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/sd_spi_controller.v",
+    "ModuleLine" : 4,
+    "ModuleName" : "sd_spi_controller"
+   }
+  ]
+ },
+ {
+  "InstFile" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/uart_slave.v",
+  "InstLine" : 1,
+  "InstName" : "uart_slave",
+  "ModuleFile" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/uart_slave.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "uart_slave",
+  "SubInsts" : [
+   {
+    "InstFile" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/uart_slave.v",
+    "InstLine" : 34,
+    "InstName" : "RX",
+    "ModuleFile" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/uart_rx.v",
+    "ModuleLine" : 2,
+    "ModuleName" : "uart_rx"
+   },
+   {
+    "InstFile" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/uart_slave.v",
+    "InstLine" : 49,
+    "InstName" : "TX",
+    "ModuleFile" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/uart_tx.v",
+    "ModuleLine" : 2,
+    "ModuleName" : "uart_tx"
+   }
+  ]
+ }
+]

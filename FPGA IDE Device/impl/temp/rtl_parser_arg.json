@@ -1,0 +1,45 @@
+{
+ "Device" : "GW1NR-9C",
+ "Files" : [
+  {
+   "Path" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/debug_uart.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/ide_device.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/sd_spi_controller.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/sector_buffer.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/uart_rx.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/uart_slave.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/src/uart_tx.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "D:/CXHCTL_Phuc/Programs/FPGA_CNC/Wifi_CF/fpga_ide_device/impl/temp/rtl_parser.result",
+ "Top" : "top",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

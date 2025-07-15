@@ -1,0 +1,50 @@
+// ===================================================================
+// File:         tang_nano_9k_cnc_final.cst
+// Version:      Final for On-chip Clock and UART
+// Mục đích:     Gán các chân vật lý cho giao diện IDE và SPI.
+//               KHÔNG gán chân cho clock và UART tích hợp.
+// ===================================================================
+
+// --- Giao tiếp với thẻ nhớ microSD (SPI) ---
+// Các chân này đã được nối sẵn trên board đến khe cắm TF_CARD.
+IO_LOC "sd_cs"   38;
+IO_LOC "sd_mosi" 37;
+IO_LOC "sd_miso" 39;
+IO_LOC "sd_clk"  36;
+
+// --- Giao tiếp IDE (phía máy CNC) ---
+// Tín hiệu điều khiển
+IO_LOC "dior_n" 25;
+IO_LOC "diow_n" 26;
+IO_LOC "cs0_n"  27;
+IO_LOC "intrq"  28;
+
+// Bus địa chỉ
+IO_LOC "addr[2]" 29;
+IO_LOC "addr[1]" 30;
+IO_LOC "addr[0]" 33;
+
+// Bus dữ liệu 16-bit (Đã sửa lỗi chân SSPI)
+IO_LOC "data_bus[15]" 34;
+IO_LOC "data_bus[14]" 40;
+IO_LOC "data_bus[13]" 35;
+IO_LOC "data_bus[12]" 41;
+IO_LOC "data_bus[11]" 42;
+IO_LOC "data_bus[10]" 51;
+IO_LOC "data_bus[9]"  53;
+IO_LOC "data_bus[8]"  63;
+IO_LOC "data_bus[7]"  86;
+IO_LOC "data_bus[6]"  70;
+IO_LOC "data_bus[5]"  57;
+IO_LOC "data_bus[4]"  68;
+IO_LOC "data_bus[3]"  69;
+IO_LOC "data_bus[2]"  71;
+IO_LOC "data_bus[1]"  73;
+IO_LOC "data_bus[0]"  72;
+
+IO_LOC "leds_ext[0]" 10;
+IO_LOC "leds_ext[1]" 11;
+IO_LOC "leds_ext[2]" 13;
+IO_LOC "leds_ext[3]" 14;
+IO_LOC "leds_ext[4]" 15;
+IO_LOC "leds_ext[5]" 16;

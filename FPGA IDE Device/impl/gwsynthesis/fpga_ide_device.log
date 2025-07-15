@@ -1,0 +1,42 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\debug_uart.v'
+Analyzing Verilog file 'D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\ide_device.v'
+Analyzing Verilog file 'D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\sd_spi_controller.v'
+Analyzing Verilog file 'D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\sector_buffer.v'
+Analyzing Verilog file 'D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\top.v'
+Analyzing Verilog file 'D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\uart_rx.v'
+Analyzing Verilog file 'D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\uart_slave.v'
+Analyzing Verilog file 'D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\uart_tx.v'
+Compiling module 'top'("D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\top.v":9)
+WARN  (EX3791) : Expression size 17 truncated to fit in target size 16("D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\top.v":43)
+Compiling module 'ide_device'("D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\ide_device.v":7)
+Extracting RAM for identifier 'identify_device'("D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\ide_device.v":50)
+WARN  (EX3791) : Expression size 10 truncated to fit in target size 9("D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\ide_device.v":89)
+WARN  (EX3791) : Expression size 10 truncated to fit in target size 9("D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\ide_device.v":108)
+Compiling module 'sd_spi_controller'("D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\sd_spi_controller.v":4)
+Extracting RAM for identifier 'byte_buffer'("D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\sd_spi_controller.v":41)
+WARN  (EX3791) : Expression size 32 truncated to fit in target size 16("D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\sd_spi_controller.v":103)
+WARN  (EX3791) : Expression size 32 truncated to fit in target size 4("D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\sd_spi_controller.v":159)
+WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\sd_spi_controller.v":194)
+WARN  (EX3791) : Expression size 32 truncated to fit in target size 4("D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\sd_spi_controller.v":197)
+NOTE  (EX0101) : Current top module is "top"
+[5%] Running netlist conversion ...
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\impl\gwsynthesis\fpga_ide_device.vg" completed
+[100%] Generate report file "D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\impl\gwsynthesis\fpga_ide_device_syn.rpt.html" completed
+GowinSynthesis finish

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>beta</Version>
+    <Device id="GW1NR-9C" package="QFN88P" speed="6" partNumber="GW1NR-LV9QN88PC6/I5"/>
+    <FileList>
+        <File path="D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\debug_uart.v" type="verilog"/>
+        <File path="D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\ide_device.v" type="verilog"/>
+        <File path="D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\sd_spi_controller.v" type="verilog"/>
+        <File path="D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\sector_buffer.v" type="verilog"/>
+        <File path="D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\top.v" type="verilog"/>
+        <File path="D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\uart_rx.v" type="verilog"/>
+        <File path="D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\uart_slave.v" type="verilog"/>
+        <File path="D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\src\uart_tx.v" type="verilog"/>
+    </FileList>
+    <OptionList>
+        <Option type="disable_insert_pad" value="0"/>
+        <Option type="global_freq" value="50.000"/>
+        <Option type="looplimit" value="2000"/>
+        <Option type="output_file" value="D:\CXHCTL_Phuc\Programs\FPGA_CNC\Wifi_CF\fpga_ide_device\impl\gwsynthesis\fpga_ide_device.vg"/>
+        <Option type="print_all_synthesis_warning" value="0"/>
+        <Option type="ram_rw_check" value="0"/>
+        <Option type="top_module" value="top"/>
+        <Option type="vcc" value="1.2"/>
+        <Option type="verilog_language" value="verilog-2001"/>
+        <Option type="vhdl_language" value="vhdl-1993"/>
+    </OptionList>
+</Project>
